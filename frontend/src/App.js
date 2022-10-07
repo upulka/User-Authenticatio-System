@@ -10,10 +10,10 @@ function App() {
             <Route exact path = "/home">
                 <Home/>
             </Route>
-            <Route path = "/login">
+            <Route exact path = "/login">
                 <Login/>
             </Route>
-            <Route path = "/register">
+            <Route exact path = "/">
                 <Register/>
             </Route>
         </BrowserRouter>
