@@ -20,6 +20,13 @@ function Login() {
 
     const data = await response.json();
 
+    if(data.user){
+      alert('login successful');
+      window.location.href = '/home'
+    }else{
+      alert('Please chack the credentials')
+    }
+
     console.log(data);
   }
 
