@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 
 function Register() {
+  const history = useHistory()
   const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +26,9 @@ function Register() {
 
     console.log(data);
 
-    window.location.href = '/login'
+    if(data.status === 'ok'){
+      history.push('/login')
+    }
   }
 
   return (

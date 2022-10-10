@@ -44,6 +44,17 @@ app.post('/login' , async(req , res) =>{
     }
 })
 
+app.get('/register' , async(req , res) =>{
+
+    const token = req.headers['x-access-token']
+
+    const decoded = jwt.verify(token , 'secret@123')
+    const fullname = decoded.fullname
+    const user = await User.findOne({fullname : fullname})
+    return { status : 'ok' , fullname: user.fullname}
+    
+})
+
 app.listen(port , () =>{
     console.log('Server Started on Port : ' + port);
 })
